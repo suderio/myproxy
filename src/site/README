@@ -1,0 +1,94 @@
+1 Introduction 2
+2 Installation Notes
+2.1 MS Windows 9x,2000,XP . . . . . . . . . . . . . . . . . . . . . .
+2.2 MacOS, Linux . . . . . . . . . . . . . . . . . . . . . . . . . . . . 2
+3 Starting myproxy
+3.1 Stopping myproxy . . . . . . . . . . . . . . . . . . . . . . . . . . 3
+4 Configuration
+4.1 The configuration file .
+4.2 Webinterface . . . . .
+4.3 Browser Configuration
+4.4 Security . . . . . . . .
+4.5 Performance Hints . . .
+5 Bugs
+5.1 Known Bugs/Limitations . . . . . . . . . . . . . . . . . . . . . .
+5.2 Reporting Bugs . . . . . . . . . . . . . . . . . . . . . . . . . . . . 6
+6 Version History
+6.1 New Features and Bugfixes in 0.4.50 (and higher) . . . . . . . . . 6
+
+
+The configuration file
+The myproxy proxy can be configured with the file called server.properties.
+Following entries are supported (so far):
+
+server.http-proxy (true—false) Set this to true to use a remote HTTP proxy
+server. Default: false
+
+server.http-proxy.hostname The hostname of the remote proxy (or IP-address)
+
+server.http-proxy.port (integer number) The port number of the remote
+HTTP proxy
+
+server.filter.http (true—false) If set to true, the Referer header will be
+removed and the User-Agent header will be changed to a new value.
+WARNING: Set only to true if you know what Referer and User-Agent
+mean. Some of your websites may become unusable.
+
+server.filter.http.useragent (Browser identification like ”Mozilla/4.0 ....”) If
+server.filter.http is set to true, this field overwrites the ”User-Agent”
+HTTP Header (contains information about the browser)
+
+server.enable-cookies-by-default (true—false) This boolean value controls
+the default handling for cookies. If set to false, all cookies will be removed,
+if the spezific domain is not catched by a search pattern in the url manager.
+If set to true, all cookies will be untouched, if no other setting in the URL-
+Filter is given.
+
+server.debug-logging (true—false) Enables the low-level logging, probably
+only useful for developer
+
+server.port (Integer number) server.port is a number from 0 to 65535; some
+port numbers (especially below 1024) are reserved for particular protocols.
+The default value is 8088, but you can change this, if nesessary. This
+happens when the default port is already being used by another application
+in the system. Server port changes take effect on restart.
+
+Bugs
+5.1
+Known Bugs/Limitations
+. Connections appear not in the access log file when using http://localhost:8088
+or http://127.0.0.1
+. SSL-Connect command seems to work incorrectly under some conditions
+. Web configuration interface is incomplete
+. No IP Version 6 (ipv6) Support
+. No Support for the HTTP/1.1 ”Pipelining” feature
+. myproxy acts as a NON-caching HTTP proxy
+5.2
+Reporting Bugs
+If you have a specific bug report or a feature request, please visit
+http://sourceforge.net/tracker/?group_id=25114&atid=383422
+This link is also on the myproxy website:
+http://jhttp2.sourceforge.net/
+When submitting a bug, be sure to include the version number of the myproxy
+you are using.
+6
+Version History
+. 0.0.1 2001-04-01 myproxy was created spring 2001, this was a non-public
+release
+. 0.2.22 2001-05-16 The first public release on SourceForge.net. This release
+suffered from the bad HTTP implementation
+. 0.3.0 2001-05-20
+. 0.4.0 2001-06-20
+. 0.4.50 2003-03-06
+. 0.4.60 2003-03-13
+. 0.4.62 2003-05-20 The SWING-GUI was removed, replaced by the improved
+web-based configuration interface
+6.1
+New Features and Bugfixes in 0.4.50 (and higher)
+. This user manual; build with LaTex (MikTex 2.2 – LaTex for Windows,
+http://www.miktex.org)
+. Swing-graphical user interface removed, replaced by web admin module
+http://localhost:8088/admin/jp2-config
+. Enhanced web administration module
+. Corrected link on the server’s homepage
+. CLASS archive file size reduced to less than 30kb

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+  <Appenders>
+     <Console name="Console" target="SYSTEM_OUT">
+      <PatternLayout pattern="%d %p %m%n" />
+    </Console>
+  </Appenders>
+  <Loggers>
+    <asyncRoot level="all" includeLocation="false">
+      <AppenderRef ref="Console" />
+    </asyncRoot>
+  </Loggers>
+</Configuration>
